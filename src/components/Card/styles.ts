@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CharacterImage = styled.img`
+export const CharacterImage = styled.img<{ $isAlive: boolean }>`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -8,7 +8,7 @@ export const CharacterImage = styled.img`
   top: 0;
   left: 0;
   z-index: 0;
-  filter: grayscale(100%);
+  filter: ${({ $isAlive }) => ($isAlive ? "none" : "grayscale(100%)")};
   transition: transform 0.2s ease, box-shadow 0.1s ease;
 `;
 
@@ -26,14 +26,10 @@ export const Container = styled.li`
   transition: transform 0.2s ease, box-shadow 0.1s ease;
 
   &:hover {
-    box-shadow: 0 0 0.2rem #fff, 0 0 0.1rem #fff, 0 0 1rem #c9d636,
-      0 0 0.1rem #c9d636, 0 0 0.1rem #c9d636, inset 0 0 1rem #c9d636;
-    outline: solid 0.3rem #c9d636;
+    box-shadow: 0 0 2px #fff, 0 0 1px #fff, 0 0 10px #c9d636, 0 0 1px #c9d636,
+      0 0 1px #c9d636, inset 0 0 10px #c9d636;
+    outline: solid 3px #c9d636;
     border: solid 2px #c9d636;
-
-    ${CharacterImage} {
-      filter: grayscale(0);
-    }
   }
 `;
 
@@ -46,7 +42,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const CharacterName = styled.span`
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: bold;
   color: white;
   display: block;
@@ -57,7 +53,7 @@ export const CharacterName = styled.span`
 `;
 
 export const CharacterSpecie = styled.span`
-  font-size: 0.9rem;
+  font-size: 9px;
   display: block;
   text-align: left;
   white-space: nowrap;
@@ -68,7 +64,7 @@ export const CharacterSpecie = styled.span`
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 5px;
   text-align: center;
   width: 100%;
   backdrop-filter: blur(10px);

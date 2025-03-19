@@ -15,7 +15,6 @@ import { CharacterList } from "./styles";
 import Pagination from "../../components/Pagination";
 import Loading from "../../components/Loading";
 import CharacterModal from "../../components/Modal";
-
 export default function SearchCharacters() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -62,7 +61,6 @@ export default function SearchCharacters() {
     <Container>
       {isLoading && <Loading />}
       <TopContainer>
-
         <RickAndMortyImage src={Logo} />
         <SupportContainer>
           <StyledInput
@@ -91,6 +89,7 @@ export default function SearchCharacters() {
             characterName={character.name}
             characterImage={character.image}
             characterSpecie={character.species}
+            characterStatus={character.status}
             onClick={() => {
               selectCharacter(character.id);
             }}

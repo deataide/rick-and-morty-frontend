@@ -23,23 +23,23 @@ export const SupportContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 20px;
+  margin-top: 20px;
 `;
 
 export const RickAndMortyImage = styled.img`
   width: 502px;
   height: 214px;
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
 `;
 
 export const CharacterList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 3rem auto;
+  margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 15px;
   width: 80%;
 `;

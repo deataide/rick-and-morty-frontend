@@ -17,35 +17,41 @@ export const ModalWrapper = styled.div`
 export const CardContainer = styled.div`
   display: flex;
   background: #111;
-  border: solid 1px #606060;
+  border: solid 1px #161616;
+  border-radius: 16px;
   overflow: visible;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: white;
-  max-width: 900px;
-  width: 900px;
-  height: 550px;
+  width: 1034px;
+  height: 799px;
+  max-width: 95vw;
+  max-height: 90vh;
+  z-index: 1;
 
   @media (max-width: 768px) {
     flex-direction: column;
     width: 90%;
     height: auto;
-    margin-top: 20%;
-    margin-bottom: 20%;
+    min-height: 400px;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
 `;
 
 export const ImageSection = styled.div`
-  width: 35%;
+  width: 30%;
   position: relative;
   overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
   background: black;
+  border-radius: 16px 0 0 16px;
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 10rem;
+    border-radius: 16px 16px 0 0;
   }
 `;
 
@@ -55,8 +61,9 @@ export const ImageWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(20px) brightness(50%);
+  filter: blur(30px) brightness(50%);
   overflow: hidden;
+  clip-path: inset(0 round 16px 0 0 16px);
 
   @media (max-width: 768px) {
     width: 100%;
@@ -72,45 +79,52 @@ export const BackgroundImage = styled.img`
 
 export const CharacterContentImage = styled.div`
   position: absolute;
-  border: solid 1px #606060;
+  border: solid 2px #606060;
   border-radius: 8px;
-  left: -100px;
-  margin-top: 2rem;
+
+  transform: translate(-20%, -50%);
   top: 50%;
-  transform: translateY(-50%);
   z-index: 10;
+  height: 75%;
+  width: 100%;
 
   @media (max-width: 768px) {
     position: relative;
-    left: 0;
-    top: 40%;
-    margin: 1rem auto;
+    left: 10%;
+    width: 50%;
+    transform: translate(-10%, -10%);
+
+    border: none;
   }
 `;
-
 export const CharacterImage = styled.img`
   position: relative;
-  width: 20rem;
-  height: 25rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
   border-radius: 8px 8px 0 0px;
 
   @media (max-width: 768px) {
-    width: 10rem;
-    height: 10rem;
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    display: block;
   }
 `;
 
 export const InfoContainer = styled.div`
-  width: 65%;
-  padding: 2rem 5rem 2rem 5rem;
+  width: 70%;
+  z-index: 1;
+  padding: 50px 70px 50px 70px;
   background-color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  border-radius: 0 16px 16px 0;
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 20px 20px 20px;
   }
 `;
 
@@ -120,7 +134,12 @@ export const InfoSection = styled.div`
 export const TextWrapper = styled.div`
   background-color: #1a1a1a;
   border-radius: 0px 0px 8px 8px;
-  padding: 0.5rem;
+  padding: 5px;
+  width: 100%;
+  max-height: 55px;
+
+  @media (max-width: 768px) {
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -132,6 +151,7 @@ export const CloseButton = styled.button`
   border: none;
   padding: 10px 20px;
   border: solid 3px white;
+  font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
   z-index: 10000;
@@ -140,9 +160,9 @@ export const CloseButton = styled.button`
 export const ColoredTitle = styled.h2`
   font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.8rem;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
+  letter-spacing: 8px;
+  margin-bottom: 15px;
+  margin-top: 25px;
   color: #c9d636;
 `;
 
@@ -153,7 +173,7 @@ export const StyledText = styled.p<{
 }>`
   font-size: ${({ fontSize }) => fontSize || "16px"};
   color: ${({ color }) => color || "#ccc"};
-  padding-top: ${({ padding }) => (padding ? "8px" : 0)};
+  padding-top: ${({ padding }) => (padding ? "12px" : 0)};
   line-height: 140%;
 
   @media (max-width: 768px) {

@@ -48,42 +48,44 @@ const CharacterModal: React.FC<CharacterModalProps> = ({
           <InfoSection>
             <ColoredTitle>About</ColoredTitle>
             <StyledText padding={false} fontSize="16px" color="#D3D3D3">
-              {character?.name} is a {character?.gender} {character?.species}.
-              He is {character?.status}. Last seen in{" "}
-              {character?.last_episode?.air_date}.
+              {character?.name} is a {character?.gender} {character?.species}.{" "}
+              {character?.gender === "Female" ? "She" : "He"} is{" "}
+              {character?.status}{" "}
+              {character?.status === "Alive" ? "and well" : "and sad"}. Last
+              seen in {character?.last_episode?.air_date}.
             </StyledText>
           </InfoSection>
           <InfoSection>
             <ColoredTitle>Origin</ColoredTitle>
-            <StyledText padding={false}  fontSize="14px" color="#8C8C8C">
+            <StyledText padding={true} fontSize="14px" color="#8C8C8C">
               {character?.origin?.type || "Tipo Desconhecido"}
             </StyledText>
-            <StyledText padding={false}  fontSize="28px" color="#fff">
-              {character?.origin?.name  || "Lugar Desconhecido"}
+            <StyledText padding={false} fontSize="28px" color="#fff">
+              {character?.origin?.name || "Lugar Desconhecido"}
             </StyledText>
-            <StyledText padding={false}  fontSize="18px" color="#D3D3D3">
-              {character?.origin?.dimension  || "Dimensão Desconhecido"}
+            <StyledText padding={false} fontSize="18px" color="#D3D3D3">
+              {character?.origin?.dimension || "Dimensão Desconhecida"}
             </StyledText>
             <StyledText fontSize="14px" color="#8C8C8C" padding={true}>
               <FaPeopleGroup /> {character?.origin?.residents_count || 0}{" "}
-              residents.
+              residents
             </StyledText>
-            </InfoSection>
+          </InfoSection>
 
-            <InfoSection>
+          <InfoSection>
             <ColoredTitle>Location</ColoredTitle>
-            <StyledText padding={false}  fontSize="14px" color="#8C8C8C">
+            <StyledText padding={true} fontSize="14px" color="#8C8C8C">
               {character?.location?.type || "Tipo Desconhecido"}
             </StyledText>
             <StyledText fontSize="28px" color="#fff">
               {character?.location?.name || "Lugar Desconhecido"}
             </StyledText>
             <StyledText fontSize="18px" color="#D3D3D3">
-              {character?.location?.dimension  || "Dimensão Desconhecido"}
+              {character?.location?.dimension || "Dimensão Desconhecida"}
             </StyledText>
             <StyledText fontSize="14px" color="#8C8C8C" padding={true}>
               <FaPeopleGroup /> {character?.location?.residents_count || 0}{" "}
-              residents.
+              residents
             </StyledText>
           </InfoSection>
         </InfoContainer>
