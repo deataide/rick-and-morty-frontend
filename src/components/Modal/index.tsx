@@ -49,10 +49,16 @@ const CharacterModal: React.FC<CharacterModalProps> = ({
             <ColoredTitle>About</ColoredTitle>
             <StyledText padding={false} fontSize="16px" color="#D3D3D3">
               {character?.name} is a {character?.gender} {character?.species}.{" "}
-              {character?.gender === "Female" ? "She" : "He"} is{" "}
-              {character?.status}{" "}
-              {character?.status === "Alive" ? "and well" : "and sad"}. Last
-              seen in {character?.last_episode?.air_date}.
+              {character?.status === "Alive"
+                ? `${
+                    character?.gender === "Female" ? "She" : "He"
+                  } is alive and well.`
+                : character?.status === "Dead"
+                ? `${character?.gender === "Female" ? "She" : "He"} is dead.`
+                : `It can't be told if ${
+                    character?.gender === "Female" ? "she" : "he"
+                  } is alive or dead.`}{" "}
+              Last seen in {character?.last_episode?.air_date}.
             </StyledText>
           </InfoSection>
           <InfoSection>

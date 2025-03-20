@@ -19,6 +19,7 @@ export const CardContainer = styled.div`
   background: #111;
   border: solid 1px #161616;
   border-radius: 16px;
+  border-bottom: none;
   overflow: visible;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: white;
@@ -81,7 +82,6 @@ export const CharacterContentImage = styled.div`
   position: absolute;
   border: solid 2px #606060;
   border-radius: 8px;
-
   transform: translate(-20%, -50%);
   top: 50%;
   z-index: 10;
@@ -93,7 +93,6 @@ export const CharacterContentImage = styled.div`
     left: 10%;
     width: 50%;
     transform: translate(-10%, -10%);
-
     border: none;
   }
 `;
