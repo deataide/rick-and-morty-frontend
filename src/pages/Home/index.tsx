@@ -29,7 +29,6 @@ export default function SearchCharacters() {
     setIsLoading(true);
     try {
       const handleResponse = await searchCharacters(searchQuery, page);
-
       setCharacters(handleResponse.characters);
       setTotalPages(handleResponse.total_pages);
     } catch (error) {
@@ -54,9 +53,15 @@ export default function SearchCharacters() {
     }
   };
 
+  const handleNewSearch = () => {
+    setCurrentPage(1);
+    handleSearchCharacters(1);
+  };
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
   return (
     <Container>
       {isLoading && <Loading />}
@@ -66,7 +71,7 @@ export default function SearchCharacters() {
           <StyledInput
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                handleSearchCharacters(1);
+                handleNewSearch();
               }
             }}
             type="text"
@@ -76,7 +81,7 @@ export default function SearchCharacters() {
             }}
             placeholder="Enter character name"
           />
-          <StyledButton onClick={() => handleSearchCharacters(1)}>
+          <StyledButton onClick={() => handleNewSearch()}>
             Search
           </StyledButton>
         </SupportContainer>
